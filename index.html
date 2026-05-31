@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <title>Vaishnavi Patel | Cloud & DevOps Portfolio</title>
+  <style>
+    :root {
+      --primary: #4361ee;
+      --secondary: #3f37c9;
+      --accent: #f72585;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --success: #4cc9f0;
+      --warning: #f8961e;
+      --info: #4895ef;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.7;
+      color: var(--dark);
+      background-color: #fafafa;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+    
+    h1 {
+      font-size: 3.5rem;
+      line-height: 1.2;
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+    
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--primary));
+      border-radius: 2px;
+    }
+    
+    p {
+      margin-bottom: 1.2rem;
+      color: #555;
+      font-size: 1.1rem;
+    }
+    
+    a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    a:hover {
+      color: var(--accent);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+    }
+    
+    .btn:hover {
+      background: var(--secondary);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(67, 97, 238, 0.4);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 100px 0 80px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      opacity: 0.1;
+      z-index: 0;
+    }
+    
+    header .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    header h1 {
+      color: white;
+      margin-bottom: 15px;
+      animation: fadeInDown 1s;
+    }
+    
+    header p {
+      color: rgba(255,255,255,0.9);
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      animation: fadeInUp 1s;
+    }
+    
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+      animation: fadeIn 1.5s;
+    }
+    
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      background: rgba(255,255,255,0.1);
+    }
+    
+    .social-links a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-3px);
+    }
+    
+    /* Profile Image */
+    .profile-container {
+      display: flex;
+      justify-content: center;
+      margin: -80px auto 40px;
+      position: relative;
+      z-index: 10;
+      animation: fadeIn 1s;
+    }
+    
+    .profile-image {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .profile-image:hover {
+      transform: scale(1.05);
+    }
+    
+    /* Sections */
+    section {
+      padding: 80px 0;
+    }
+    
+    section:nth-child(even) {
+      background-color: white;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .section-title h2 {
+      display: inline-block;
+    }
+    
+    /* About */
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+    
+    .about-text {
+      flex: 1;
+    }
+    
+    .about-image {
+      flex: 1;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+    
+    /* Reviews */
+    .reviews-container {
+      position: relative;
+    }
+    
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .review-card {
+      background: white;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .review-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .rating {
+      color: #FFD700;
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+    
+    .review-card p {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    
+    .review-author {
+      font-weight: 600;
+      color: var(--dark);
+    }
+    
+    /* Projects */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .project-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .project-image {
+      height: 200px;
+      overflow: hidden;
+    }
+    
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .project-card:hover .project-image img {
+      transform: scale(1.1);
+    }
+    
+    .project-content {
+      padding: 25px;
+    }
+    
+    .project-content h3 {
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 15px 0;
+    }
+    
+    .tag {
+      background: rgba(67, 97, 238, 0.1);
+      color: var(--primary);
+      padding: 5px 12px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    /* Contact */
+    .contact-container {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 60px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 15px 30px rgba(67, 97, 238, 0.3);
+    }
+    
+    .contact-container h2 {
+      color: white;
+    }
+    
+    .contact-container h2:after {
+      background: white;
+    }
+    
+    .contact-container p {
+      color: rgba(255,255,255,0.9);
+      max-width: 700px;
+      margin: 0 auto 30px;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    
+    .contact-item i {
+      font-size: 1.5rem;
+      color: white;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+    }
+    
+    footer p {
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 0;
+    }
+    
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .about-content {
+        flex-direction: column;
+      }
+      
+      section {
+        padding: 60px 0;
+      }
+      
+      .contact-container {
+        padding: 40px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Vaishnavi Patel</h1>
+      <p>Cloud Computing & DevOps Enthusiast | BCA Student</p>
+      <div class="social-links">
+        <a href="https://twitter.com/yourusername" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/vaishnavi-patel-b6b4a32a8/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/vaishnavipatel99" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <div class="profile-container">
+    <img class="profile-image" src="profile.jpg" alt="Vaishnavi Patel">
+  </div>
+
+  <main class="container">
+    <section id="about">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>About Me</h2>
+          <p>Hello! I'm Vaishnavi Patel, a passionate BCA student with a deep interest in cloud computing and DevOps technologies. I'm currently working on this project as part of my seminar presentation, combining my academic knowledge with practical implementation.</p>
+          <p>My journey in cloud technologies began when I first discovered the power of scalable infrastructure and automated deployments. Since then, I've been dedicated to learning and mastering tools like AWS, Kubernetes, Docker, Terraform, and CI/CD pipelines.</p>
+          <p>Beyond my studies, I actively contribute to open-source projects and create educational content to help others navigate the world of cloud computing. I believe in continuous learning and sharing knowledge with the community.</p>
+          <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Cloud Computing">
+        </div>
+      </div>
+    </section>
+
+    <section id="reviews">
+      <div class="section-title">
+        <h2>Client Testimonials</h2>
+        <p>What people say about my work</p>
+      </div>
+      <div class="reviews">
+        <div class="review-card">
+          <div class="rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p>"Vaishnavi's expertise in cloud computing and DevOps is unparalleled. She provided valuable insights and solutions for our project, and we couldn't be happier with the results."</p>
+          <p class="review-author">-Om Patel, CEO at Example Corp</p>
+        </div>
+        <div class="review-card">
+          <div class="rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p>"Working with Vaishnavi was a great experience. Her dedication and problem-solving skills made our cloud migration project a success."</p>
+          <p class="review-author">- Smith, CTO at ABC Solutions</p>
+        </div>
+        <div class="review-card">
+          <div class="rating">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p>"Vaishnavi's knowledge of AWS and cloud infrastructure is impressive. She helped us optimize costs and improve our system's performance significantly."</p>
+          <p class="review-author">- Mark, CIO at XYZ Tech</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="section-title">
+        <h2>Cloud Projects</h2>
+        <p>My recent work in cloud computing</p>
+      </div>
+      <div class="projects">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Kubernetes Project">
+          </div>
+          <div class="project-content">
+            <h3>Kubernetes in the Cloud</h3>
+            <p>A scalable and robust Kubernetes setup in the cloud, leveraging the power of microservices architecture and Helm for deployment.</p>
+            <div class="project-tags">
+              <span class="tag">Kubernetes</span>
+              <span class="tag">Docker</span>
+              <span class="tag">AWS</span>
+            </div>
+            <a href="#" class="btn btn-outline">View Details</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="CI/CD Project">
+          </div>
+          <div class="project-content">
+            <h3>CI/CD with Jenkins and GitLab</h3>
+            <p>Building a robust continuous integration and continuous deployment pipeline using Jenkins and GitLab for version control.</p>
+            <div class="project-tags">
+              <span class="tag">Jenkins</span>
+              <span class="tag">GitLab</span>
+              <span class="tag">Automation</span>
+            </div>
+            <a href="#" class="btn btn-outline">View Details</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Monitoring Project">
+          </div>
+          <div class="project-content">
+            <h3>Cloud Monitoring with Prometheus</h3>
+            <p>Implementing a comprehensive cloud monitoring solution using Prometheus and Grafana to ensure system reliability.</p>
+            <div class="project-tags">
+              <span class="tag">Prometheus</span>
+              <span class="tag">Grafana</span>
+              <span class="tag">Monitoring</span>
+            </div>
+            <a href="#" class="btn btn-outline">View Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="contact-container">
+        <h2>Get In Touch</h2>
+        <p>If you have any questions, collaboration opportunities, or just want to say hello, feel free to reach out to me.</p>
+        <a href="mailto:vaishnavi09052005@gmail.com" class="btn">Send Email</a>
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>vaishnavi09052005@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-linkedin"></i>
+            <span>linkedin.com/in/vaishnavi-patel-b6b4a32a8/</span>
+          </div>
+          <div class="contact-item">
+            <i class="fab fa-github"></i>
+            <span>github.com/vaishnavipatel99</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Vaishnavi Patel. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+
+</html>
